@@ -4,7 +4,7 @@ import problemsDAO from "./problemsDAO.js";
 import {mongoUsername} from './auth.js';
 import {mongoPassword} from './auth.js';
 
-// Makes it easier to work with our database
+
 const MongoClient = mongodb.MongoClient;
 
 // uri is connection string

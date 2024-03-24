@@ -36,6 +36,7 @@ export default class problemCtrl {
     }
   }
 
+  /*
   static async getProblemsByType(req, res, next) {
     try {
       let type = req.params.type || {};
@@ -53,4 +54,5 @@ export default class problemCtrl {
       res.status(500).json({error: e});
     }
   }
+  */
 }
