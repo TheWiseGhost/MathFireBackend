@@ -1,9 +1,12 @@
 import app from "./server.js";
 import mongodb from "mongodb";
 import problemsDAO from "./problemsDAO.js";
-import {mongoUsername} from './auth.js';
-import {mongoPassword} from './auth.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
+const mongoUsername = process.env.MONGO_USERNAME;
+const mongoPassword = process.env.MONGO_PASSWORD;
+console.log(mongoUsername);
 
 const MongoClient = mongodb.MongoClient;
 

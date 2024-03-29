@@ -4,7 +4,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "build": "npm i"
     },
     "keywords": [],
     "author": "",
@@ -12,8 +13,13 @@
     "dependencies": {
         "@types/node": "^18.0.6",
         "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
         "express": "^4.18.2",
         "mongodb": "^6.5.0",
         "node-fetch": "^3.2.6"
-    }
+    },
+    "runArgs": [
+        "--env-file",
+        "main/.env"
+    ]
 }
