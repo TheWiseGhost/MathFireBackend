@@ -36,8 +36,7 @@ export default class problemCtrl {
     }
   }
 
-  /*
-  static async getProblemsByType(req, res, next) {
+  /* static async getProblemsByType(req, res, next) {
     try {
       let type = req.params.type || {};
       let problems = await problemsDAO.getProblemsByType(type);
@@ -55,4 +54,5 @@ export default class problemCtrl {
     }
   }
   */
-}
+} 
+
