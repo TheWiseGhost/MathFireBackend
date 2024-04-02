@@ -8,8 +8,8 @@ router.route('/challenges/:id').get(problemCtrl.getProblem);
 router.route('/action/getting_problems').get(problemCtrl.getAllProblems);
 // router.route('/sort/:type').get(problemCtrl.getProblemsByType)
 
-router.route('/action/login').get(loginCtrl.login);
-router.route('/action/register').get(loginCtrl.register);
+router.route('/action/login').post(loginCtrl.login);
+router.route('/action/register').post(loginCtrl.register);
 
 router.route('/').get((req, res) => res.send('hello world'));
 

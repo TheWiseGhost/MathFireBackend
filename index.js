@@ -24,8 +24,6 @@ MongoClient.connect(
         maxPoolSize: 50,
         wtimeoutMS: 2500,
         // Just always set to true
-        useNewUrlParser: true,
-        useUnifiedTopology: true
     }
 ).catch(err => {
     console.error(err.stack);
