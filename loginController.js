@@ -19,7 +19,7 @@ export default class loginCtrl {
   static async register(req, res) {
     try {
       const { username, password } = req.body;
-      await LoginDAO.registerUser(username, password);
+      await loginDAO.registerUser(username, password);
       res.status(201).send('User created successfully');
     } catch (error) {
       console.error(error);

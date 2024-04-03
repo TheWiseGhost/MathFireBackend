@@ -7,7 +7,6 @@ dotenv.config();
 
 const mongoUsername = process.env.MONGO_USERNAME;
 const mongoPassword = process.env.MONGO_PASSWORD;
-console.log(mongoUsername);
 
 const MongoClient = mongodb.MongoClient;
 
