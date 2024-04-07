@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import mongodb from 'mongodb';
 
 let users;
 
@@ -31,7 +32,8 @@ export default class loginDAO {
 
   static async registerUser(username, password) {
     try {
-      const hashedPassword = await bcrypt.hash(password, 10);
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
       await users.insertOne({ username, password: hashedPassword });
     } catch (e) {
       console.error(`Unable to register user: ${e}`);
