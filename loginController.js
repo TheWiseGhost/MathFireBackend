@@ -10,9 +10,9 @@ export default class loginCtrl {
       } else {
         res.json({ message: 'Login successful', user });
       }
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Error logging in');
+    } catch (e) {
+      console.error(e);
+      res.status(500).json({error: e});
     }
   }
 
@@ -20,10 +20,9 @@ export default class loginCtrl {
     try {
       const { username, password } = req.body;
       await loginDAO.registerUser(username, password);
-      res.status(201).send('User created successfully');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Error registering user');
+    } catch (e) {
+      console.error(e);
+      res.status(500).json({error: e});
     }
   }
 }
