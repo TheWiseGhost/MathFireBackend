@@ -3,7 +3,8 @@ import loginDAO from "./loginDAO.js";
 export default class loginCtrl {
   static async login(req, res) {
     try {
-      const { username, password } = req.body;
+      const username = req.body.username;
+      const password = req.body.password;
       const { user, error } = await loginDAO.loginUser(username, password);
       if (error) {
         res.status(401).json({ error });
@@ -18,7 +19,9 @@ export default class loginCtrl {
 
   static async register(req, res) {
     try {
-      const { username, password } = req.body;
+      const username = req.body.username;
+      const password = req.body.password;
+      console.log(username, password);
       await loginDAO.registerUser(username, password);
     } catch (e) {
       console.error(e);
