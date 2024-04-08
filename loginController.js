@@ -9,7 +9,7 @@ export default class loginCtrl {
       if (error) {
         res.status(401).json({ error });
       } else {
-        res.json({ message: 'Login successful', user });
+        res.json({ message: 'ok', user });
       }
     } catch (e) {
       console.error(e);
@@ -23,6 +23,9 @@ export default class loginCtrl {
       const password = req.body.password;
       console.log(username, password);
       await loginDAO.registerUser(username, password);
+      
+      // This response is currently doing nothing 
+      res.json({message: 'ok'});
     } catch (e) {
       console.error(e);
       res.status(500).json({error: e});
