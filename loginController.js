@@ -5,11 +5,11 @@ export default class loginCtrl {
     try {
       const username = req.body.username;
       const password = req.body.password;
-      const { user, error } = await loginDAO.loginUser(username, password);
+      const { error } = await loginDAO.loginUser(username, password);
       if (error) {
         res.status(401).json({ error });
       } else {
-        res.json({ message: 'ok', user });
+        res.json({ message: 'ok' });
       }
     } catch (e) {
       console.error(e);
@@ -21,10 +21,8 @@ export default class loginCtrl {
     try {
       const username = req.body.username;
       const password = req.body.password;
-      console.log(username, password);
       await loginDAO.registerUser(username, password);
       
-      // This response is currently doing nothing 
       res.json({message: 'ok'});
     } catch (e) {
       console.error(e);
