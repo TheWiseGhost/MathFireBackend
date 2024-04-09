@@ -5,6 +5,7 @@ export default class loginCtrl {
     try {
       const username = req.body.username;
       const password = req.body.password;
+      console.log(username);
       const { error } = await loginDAO.loginUser(username, password);
       if (error) {
         res.status(401).json({ error });
