@@ -1,6 +1,7 @@
 import express from "express";
 import problemCtrl from "./problemsController.js";
 import loginCtrl from "./loginController.js";
+import competitionCtrl from "./competitionsController.js";
 
 const router = express.Router();
 
@@ -11,7 +12,7 @@ router.route('/action/getting_problems').get(problemCtrl.getAllProblems);
 router.route('/action/login').post(loginCtrl.login);
 router.route('/action/register').post(loginCtrl.register);
 
-router.route('/competitions_search').get();
+router.route('/competitions_search').get(competitionCtrl.getAllCompetitions);
 
 router.route('/').get((req, res) => res.send('hello world'));
 
