@@ -36,6 +36,7 @@ export default class problemCtrl {
     }
   }
 
+  // Not using anymore
   /* static async getProblemsByType(req, res, next) {
     try {
       let type = req.params.type || {};

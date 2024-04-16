@@ -10,7 +10,7 @@ export default class problemsDAO {
       problems = await connection.db().collection("Problems");
       console.log("Connected to problems collection");
     } catch (e) {
-      console.error(`Unable to establish connection handles in userDAO: ${e}`);
+      console.error(`Unable to establish connection handles in problemsDAO: ${e}`);
     }
   }
 
@@ -38,8 +38,9 @@ export default class problemsDAO {
       return {error: e};
     }
   }
-
-  static async getProblemsByType(type) {
+  
+  // Not using anymore
+  /* static async getProblemsByType(type) {
     try {
       console.log(type);
       let cursor = await problems.find({problemType: type}).toArray();
@@ -49,5 +50,5 @@ export default class problemsDAO {
       console.log(`Error with getProblemsByType(): ${e}`);
       return {error: e};
     }
-  }
+  } */
 }

@@ -11,6 +11,8 @@ router.route('/action/getting_problems').get(problemCtrl.getAllProblems);
 router.route('/action/login').post(loginCtrl.login);
 router.route('/action/register').post(loginCtrl.register);
 
+router.route('/competitions_search').get();
+
 router.route('/').get((req, res) => res.send('hello world'));
 
 export default router;
