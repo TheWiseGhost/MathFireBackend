@@ -13,6 +13,7 @@ router.route('/action/login').post(loginCtrl.login);
 router.route('/action/register').post(loginCtrl.register);
 
 router.route('/competitions_search').get(competitionCtrl.getAllCompetitions);
+router.route('/competition/:id').get(competitionCtrl.getCompetition);
 
 router.route('/').get((req, res) => res.send('hello world'));
 

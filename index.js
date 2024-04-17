@@ -3,6 +3,7 @@ import mongodb from "mongodb";
 import problemsDAO from "./problemsDAO.js";
 import loginDAO from "./loginDAO.js";
 import dotenv from 'dotenv';
+import competitionsDAO from "./competitionsDAO.js";
 dotenv.config();
 
 const mongoUsername = process.env.MONGO_USERNAME;
@@ -30,6 +31,7 @@ MongoClient.connect(
 }).then(async client => { // Starts the server
     await problemsDAO.injectDB(client);
     await loginDAO.injectDB(client);
+    await competitionsDAO.injectDB(client);
 
     app.listen(port, () => {
         console.log(`Listening on port ${port}`)

@@ -25,4 +25,17 @@ export default class competitionsDAO {
     }
   }
   
+  static async getCompetition(id) {
+    try {
+      console.log(id);
+      let cursor = await competitions.findOne({_competitionId: id});
+      console.log('cursor = ' + cursor);
+      return cursor;
+      // CURSOR IS NULL FOR SOME REASON
+    } catch(e) {
+      console.log(`Error with getCompetition(): ${e}`);
+      return {error: e};
+    }
+  }
+  
 }
