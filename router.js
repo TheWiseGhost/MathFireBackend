@@ -14,7 +14,7 @@ router.route('/action/register').post(loginCtrl.register);
 
 router.route('/competitions_search').get(competitionCtrl.getAllCompetitions);
 router.route('/competition/:id').get(competitionCtrl.getCompetition);
-router.route('/competitions/upload/:id').post(competitionCtrl.insertScore);
+router.route('/competition/upload/:id').post(competitionCtrl.insertScore);
 
 router.route('/').get((req, res) => res.send('hello world'));
 
