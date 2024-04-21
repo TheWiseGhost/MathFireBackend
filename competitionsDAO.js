@@ -37,5 +37,46 @@ export default class competitionsDAO {
       return {error: e};
     }
   }
+
+  static async insertScore(id, user, score) {
+    try {
+      // Find the competition document by its _competitionId
+      const competition = await competitions.findOne({ _competitionId: id });
+  
+      if (!competition) {
+        console.log(`Competition with ID ${id} not found.`);
+        return;
+      }
+  
+      // Determine the position to insert the new score and user
+      let insertIndex = competition.leaderboard_scores.findIndex((existingScore) => score > existingScore);
+  
+      if (insertIndex === -1) {
+        // If score is not greater than any existing scores, insert at the end
+        insertIndex = competition.leaderboard_scores.length;
+      }
+  
+      // Update the competition document with the new score and user
+      await competitions.updateOne(
+        { _competitionId: id },
+        {
+          $push: {
+            leaderboard_scores: {
+              $each: [score],
+              $position: insertIndex
+            },
+            leaderboard_names: {
+              $each: [user],
+              $position: insertIndex
+            }
+          }
+        }
+      );
+  
+      console.log(`Score ${score} inserted for user ${user} in competition ${id}`);
+    } catch (e) {
+      console.log(`Error with insertScore(): ${e}`);
+    }
+  }
   
 }

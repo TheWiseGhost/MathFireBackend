@@ -36,5 +36,19 @@ export default class competitionCtrl {
     }
   }
 
+  static async insertScore(req, res) {
+    try {
+      let id = req.params.id || {};
+      const score = req.body.score;
+      const user = req.body.user;
+      await competitionsDAO.insertScore(id, user, score);
+      
+      res.json({message: 'ok'});
+    } catch (e) {
+      console.error(e);
+      res.status(500).json({error: e});
+    }
+  }
+
 } 
 
