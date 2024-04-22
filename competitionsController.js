@@ -21,7 +21,6 @@ export default class competitionCtrl {
   static async getCompetition(req, res) {
     try {
       let id = req.params.id || {};
-      console.log(id)
       let competition = await competitionsDAO.getCompetition(id);
       console.log("CompetitionCtrl competition = " + JSON.stringify(competition))
 
