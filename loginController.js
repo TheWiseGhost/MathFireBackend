@@ -22,9 +22,13 @@ export default class loginCtrl {
     try {
       const username = req.body.username;
       const password = req.body.password;
-      await loginDAO.registerUser(username, password);
-      
-      res.json({message: 'ok'});
+      let user = await loginDAO.registerUser(username, password);
+
+      if (user) {
+        res.json({message: 'emailInUse'});
+      } else {
+        res.json({message: 'ok'});
+      }
     } catch (e) {
       console.error(e);
       res.status(500).json({error: e});

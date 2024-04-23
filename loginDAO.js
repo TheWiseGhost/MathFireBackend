@@ -32,8 +32,13 @@ export default class loginDAO {
 
   static async registerUser(username, password) {
     try {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      await users.insertOne({ username, password: hashedPassword });
+      const user = await users.findOne({ username });
+      if (!user) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        await users.insertOne({ username, password: hashedPassword });
+      } else {
+        return {user};
+      }
     } catch (e) {
       console.error(`Unable to register user: ${e}`);
       return { error: e };
