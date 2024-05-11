@@ -21,7 +21,8 @@ export default class problemCtrl {
 
   static async getAllProblems(req, res, next) {
     try {
-      let problems = await problemsDAO.getAllProblems();
+      let type = req.params.type || {};
+      let problems = await problemsDAO.getAllProblems(type);
       console.log("ProblemCtrl getAllProblems = " + JSON.stringify(problems))
 
       if (!problems) {

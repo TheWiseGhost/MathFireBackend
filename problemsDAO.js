@@ -28,9 +28,9 @@ export default class problemsDAO {
     }
   }
 
-  static async getAllProblems() {
+  static async getAllProblems(type) {
     try {
-      let cursor = await problems.find().toArray();
+      let cursor = await problems.find({problemType: type}).toArray();
       console.log('getAllProblems cursor = ' + cursor);
       return cursor;
     } catch(e) {

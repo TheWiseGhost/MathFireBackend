@@ -6,7 +6,7 @@ import competitionCtrl from "./competitionsController.js";
 const router = express.Router();
 
 router.route('/challenges/:id').get(problemCtrl.getProblem);
-router.route('/action/getting_problems').get(problemCtrl.getAllProblems);
+router.route('/action/getting_problems/:type').get(problemCtrl.getAllProblems);
 // router.route('/sort/:type').get(problemCtrl.getProblemsByType)
 
 router.route('/action/login').post(loginCtrl.login);
